@@ -1,0 +1,225 @@
+:root {
+    --title: "Card Mind Reader";
+    --author: "Matt Cannon";
+    --contact: "mc@mattcannon.design";
+    --description: "An immersive mind-reading experience using binary search algorithms disguised as a magical card trick. Cards fan out beautifully while a smoky backdrop creates atmosphere. Watch as your chosen card mysteriously floats and glows after the divination process is complete.";
+    --keywords: "card trick, mentalism, binary search, magic, playing cards, interactive magic, card divination, digital illusion, floating cards, magical algorithm, mind reading, responsive design, animation effects, smoky background";
+    --last-modified: "2025-04-07";
+    --content-language: "en";
+    --generator: "HTML5, CSS3, JavaScript, animation effects, binary search algorithm, API integration, card magic";
+}
+
+body {
+    font-family: "Unica One", sans-serif;
+    background-color: #000d1a;
+    color: #fff;
+    text-align: center;
+    padding: 2em;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+#smoke-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -3;
+    pointer-events: none;
+    opacity: 0.25;
+    animation: videoFadeInOut 10s ease-in-out infinite;
+}
+
+@keyframes videoFadeInOut {
+    0%, 100% {
+        opacity: 0.25;
+    }
+    40% {
+        opacity: 0.05;
+    }
+    60% {
+        opacity: 0.05;
+    }
+}
+
+#video-fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -2;
+    animation: videoFadeLoop 25s linear infinite;
+}
+
+@keyframes videoFadeLoop {
+    0%, 95% {
+        opacity: 0;
+    }
+    98% {
+        opacity: 0.25;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+h2 {
+    font-size: 2.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 15px #00f2ff, 0 0 25px #005eff;
+}
+
+.card-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 2rem auto 3rem auto;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    pointer-events: none;
+}
+
+.card-container img {
+    position: absolute;
+    bottom: 0;
+    width: 90px;
+    transform-origin: bottom center;
+    border-radius: 8px;
+    transform: scale(1.15) rotate(0deg);
+    box-shadow: 0 0 25px rgba(0, 200, 255, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    pointer-events: auto;
+    left: 50%;
+    z-index: 1;
+}
+
+.card-container img:hover {
+    transform: scale(1.15) rotate(0deg);
+    box-shadow: none;
+    z-index: 2;
+}
+
+#card-pick {
+    margin-top: 5px;
+}
+
+#card-group {
+    margin-top: -15px;
+}
+
+.final-reveal {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+.final-reveal img {
+    position: absolute;
+    width: 150px;
+    animation: smoothReveal 0.8s ease-out forwards,
+        floatGlow 1.5s ease-in-out infinite alternate,
+        floatUp 5s ease-in-out infinite;
+    opacity: 0;
+    transform: scale(0.6) translateY(60px);
+    left: calc(50% - 75px);
+    transform-origin: center center;
+    margin: 0;
+    box-shadow: 0 0 25px rgba(0, 195, 255, 0.4);
+    border-radius: 8px;
+}
+
+@keyframes smoothReveal {
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes floatGlow {
+    0% {
+        transform: scale(1) translateY(0);
+        box-shadow: 0 0 15px rgba(0, 195, 255, 0.4);
+    }
+    100% {
+        transform: scale(1.05) translateY(-10px);
+        box-shadow: 0 0 35px rgba(0, 255, 255, 0.6);
+    }
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-100px) rotate(5deg);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-200px) rotate(-5deg);
+        opacity: 0;
+    }
+}
+
+button {
+    font-family: "Unica One", sans-serif;
+    background: #111;
+    color: white;
+    border: 2px solid white;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin-top: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+button:hover {
+    background: #fff;
+    color: #111;
+    box-shadow: 0 0 15px #00c3ff;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .card-container {
+        height: 130px;
+    }
+
+    .card-container img {
+        width: 70px;
+    }
+
+    .final-reveal img {
+        width: 110px;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
